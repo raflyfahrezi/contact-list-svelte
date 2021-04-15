@@ -5,8 +5,10 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import livereload from 'rollup-plugin-livereload'
 import alias from '@rollup/plugin-alias'
+import path from 'path'
 
 const production = !process.env.ROLLUP_WATCH
+const rootPath = path.resolve(__dirname)
 
 const serve = () => {
     let server
@@ -33,14 +35,6 @@ const serve = () => {
     }
 }
 
-const aliases = alias({
-    resolve: ['.svelte', '.js'],
-    entries: [
-        { find: '@app', replacement: 'src/app' },
-        { find: '@components', replacement: 'src/components' },
-    ],
-})
-
 const config = {
     input: 'src/main.js',
     output: {
@@ -50,7 +44,19 @@ const config = {
         file: 'public/build/bundle.js',
     },
     plugins: [
-        aliases,
+        alias({
+            resolve: ['.svelte', '.js'],
+            entries: [
+                {
+                    find: 'app',
+                    replacement: path.resolve(rootPath, 'src/app'),
+                },
+                {
+                    find: 'components',
+                    replacement: path.resolve(rootPath, 'src/components'),
+                },
+            ],
+        }),
         svelte({
             compilerOptions: {
                 // enable run-time checks when not in production
