@@ -1,11 +1,11 @@
 <script>
-    let name = ''
+    let title = ''
 
-    export { name }
+    export { title }
 </script>
 
 <div>
-    <h1>{name}</h1>
+    <h1>{title}</h1>
 </div>
 
 <style>

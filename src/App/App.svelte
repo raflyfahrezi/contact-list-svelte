@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <Header />
+    <Header title="Contact List" />
 </main>
 
 <style>
