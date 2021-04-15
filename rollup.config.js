@@ -7,15 +7,15 @@ import css from 'rollup-plugin-css-only'
 
 const production = !process.env.ROLLUP_WATCH
 
-function serve() {
+const serve = () => {
     let server
 
-    function toExit() {
+    const toExit = () => {
         if (server) server.kill(0)
     }
 
     return {
-        writeBundle() {
+        writeBundle = () => {
             if (server) return
             server = require('child_process').spawn(
                 'npm',
@@ -32,7 +32,7 @@ function serve() {
     }
 }
 
-export default {
+const config = {
     input: 'src/main.js',
     output: {
         sourcemap: true,
@@ -78,3 +78,5 @@ export default {
         clearScreen: false,
     },
 }
+
+export default config
