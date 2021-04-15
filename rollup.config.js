@@ -1,9 +1,10 @@
 import svelte from 'rollup-plugin-svelte'
+import css from 'rollup-plugin-css-only'
+import { terser } from 'rollup-plugin-terser'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import livereload from 'rollup-plugin-livereload'
-import { terser } from 'rollup-plugin-terser'
-import css from 'rollup-plugin-css-only'
+import alias from '@rollup/plugin-alias'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -32,6 +33,14 @@ const serve = () => {
     }
 }
 
+const aliases = alias({
+    resolve: ['.svelte', '.js'],
+    entries: [
+        { find: '@app', replacement: 'src/app' },
+        { find: '@components', replacement: 'src/components' },
+    ],
+})
+
 const config = {
     input: 'src/main.js',
     output: {
@@ -41,6 +50,7 @@ const config = {
         file: 'public/build/bundle.js',
     },
     plugins: [
+        aliases,
         svelte({
             compilerOptions: {
                 // enable run-time checks when not in production
