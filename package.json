@@ -19,6 +19,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "path": "^0.12.7",
     "sirv-cli": "^1.0.0"
   }
 }
