@@ -1,5 +1,7 @@
 <script>
-    export let name
+    let name = ''
+
+    export { name }
 </script>
 
 <main>
