@@ -1,1 +1,1 @@
-<input {...$$props} />
+<input {...$$props} on:input />
