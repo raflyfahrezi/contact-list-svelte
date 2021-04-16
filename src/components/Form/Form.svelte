@@ -7,6 +7,7 @@
         number: '',
     }
 
+    let addContactList
     let form = { ...formDefault }
 
     const onChangeInputHandler = e => {
@@ -19,8 +20,12 @@
     const onSubmitHandler = e => {
         e.preventDefault()
 
-        console.log(form)
+        addContactList({ ...form })
+
+        form = { ...formDefault }
     }
+
+    export { addContactList }
 </script>
 
 <form on:submit={onSubmitHandler}>

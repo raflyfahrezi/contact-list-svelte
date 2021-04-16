@@ -1,10 +1,17 @@
 <script>
     import { Header, Form } from 'components'
+
+    let contactList = []
+
+    const addContactList = data => {
+        console.log(data)
+        contactList = [...contactList, { ...data }]
+    }
 </script>
 
 <main>
     <Header title="Contact List" />
-    <Form />
+    <Form {addContactList} />
 </main>
 
 <style>
