@@ -1,4 +1,6 @@
 <script>
+    import { slide, fade } from 'svelte/transition'
+
     let contactList
 
     export { contactList }
@@ -7,8 +9,8 @@
 <div>
     {#if contactList.length > 0}
         {#each contactList as { name, number }, i}
-            <div class="card">
-                <p>{i + 1}. {name} &middot; {number}</p>
+            <div class="card" transition:fade>
+                <p transition:slide|local>{i + 1}. {name} &middot; {number}</p>
             </div>
         {/each}
     {:else}
