@@ -1,5 +1,19 @@
-<script></script>
+<script>
+    import Input from './Input.svelte'
+</script>
 
-<form />
+<form>
+    <Input placeholder="Name" />
+    <Input placeholder="Phone Number" />
+</form>
 
-<style></style>
+<style>
+    form {
+        width: 100%;
+        max-width: 300px;
+
+        margin: 0 auto;
+
+        display: grid;
+    }
+</style>
