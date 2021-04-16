@@ -6,6 +6,16 @@
 
 <div>
     {#each contactList as { name, number }, i}
-        <p>{name}</p>
+        <div class="card">
+            <p>{i + 1}. {name} &middot; {number}</p>
+        </div>
     {/each}
 </div>
+
+<style>
+    .card {
+        width: 100%;
+
+        text-align: left;
+    }
+</style>
