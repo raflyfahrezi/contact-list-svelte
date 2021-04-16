@@ -1,9 +1,10 @@
 <script>
-    import { Header } from 'components'
+    import { Header, Form } from 'components'
 </script>
 
 <main>
     <Header title="Contact List" />
+    <Form />
 </main>
 
 <style>
