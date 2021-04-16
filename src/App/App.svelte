@@ -1,5 +1,5 @@
 <script>
-    import { Header, Form } from 'components'
+    import { Header, Form, List } from 'components'
 
     let contactList = []
 
@@ -12,6 +12,7 @@
 <main>
     <Header title="Contact List" />
     <Form {addContactList} />
+    <List {contactList}/>
 </main>
 
 <style>
